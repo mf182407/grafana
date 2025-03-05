@@ -1,0 +1,16 @@
+# 10w trends average vs the current, same offset. can change offest to whatever
+sum by(service) (increase(metric_name{cluster="cluster_name", namespace="ns_name", service="api_name"}[5m]))
+
+(
+    (sum(increase(metric_name{service="api_name"}[5m] offset 1w)) +
+    sum(increase(metric_name{service="api_name"}[5m] offset 2w)) +
+    sum(increase(metric_name{service="api_name"}[5m] offset 3w)) +
+    sum(increase(metric_name{service="api_name"}[5m] offset 4w)) +
+    sum(increase(metric_name{service="api_name"}[5m] offset 5w)) +
+    sum(increase(metric_name{service="api_name"}[5m] offset 6w)) +
+    sum(increase(metric_name{service="api_name"}[5m] offset 7w)) +
+    sum(increase(metric_name{service="api_name"}[5m] offset 8w)) +
+    sum(increase(metric_name{service="api_name"}[5m] offset 9w)) +
+    sum(increase(metric_name{service="api_name"}[5m] offset 10w))
+) 
+/10)
